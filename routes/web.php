@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+    // Log::error('This is an erros');
+    $name = "John Doe";
+    Log::debug('This is debug message.',['name'=>$name]);
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
